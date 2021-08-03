@@ -70,7 +70,7 @@ If you have an installer with a built-in certificate, you only need to check whe
 ## Installer without built-in certificate
 Browse to the installation folder and place the received customer certificates under Certificates in the folder.
 
-![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?style=centerme)
+![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?raw=true)
 
 After placing the certificates the services can be started.
 
@@ -124,7 +124,11 @@ The installation can then, for example, be performed silently with the command b
 
 The command can be run in a Command Prompt, Powershell or in a script.
 
+![silent-installatie](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie.png?raw=true)
+
 The installation is active as long as the installation processes is active.
+
+![silent-installatie-process](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie-process.png?raw=true)
 
 # Responsible Disclosure
 If you come across any (possible) vulnerabilities or have any security considerations, please contact us at security@antsec.io
