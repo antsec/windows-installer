@@ -56,8 +56,6 @@ The steps below describe the manual installation of the AntSec collector with de
 5. Check the information and press next.
 6. When finished the collectors are installed. 
 
-[[https://github.com/antsec/windows-installer/images/services-geinstalleerd.png|alt=services-geinstalleerd]]
-
 Finalizing and starting the collectors.
 
 * If we provided you with an installer with build-in certificate the services selected during the installation are automatically started. 
