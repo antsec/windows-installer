@@ -65,10 +65,16 @@ Finalizing and starting the collectors.
 ## Installer with built-in certificate
 If you have an installer with a built-in certificate, you only need to check whether the services are started.
 
+![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+
 ## Installer without built-in certificate
 Browse to the installation folder and place the received customer certificates under Certificates in the folder.
 
+![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+
 After placing the certificates the services can be started.
+
+![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificate-placement.png?raw=true)
 
 # Custom installations and modifications
 On some systems an custom installation or modification is required. Only carry out these actions in consultation with us.
@@ -83,7 +89,7 @@ On the systems where IIS is installed, a “Custom Installation” must take pla
  * Local System Rights
 
 The IIS logging must be activated separately. 
-1. Browse to the installation folder and 
+1. Browse to the installation folder
 2. Open the filebeat folder
 3. Open the modules.d folder
 4. Rename the iis.yml.disabled to iis.yml
