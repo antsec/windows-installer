@@ -56,7 +56,7 @@ The steps below describe the manual installation of the AntSec collector with de
 5. Check the information and press next.
 6. When finished the collectors are installed. 
 
-[[images/services-geinstalleerd.png]]
+[[/images/services-geinstalleerd.png]]
 
 Finalizing and starting the collectors.
 
