@@ -74,7 +74,7 @@ Browse to the installation folder and place the received customer certificates u
 
 After placing the certificates the services can be started.
 
-![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificate-placement.png?raw=true)
+![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?raw=true)
 
 # Custom installations and modifications
 On some systems an custom installation or modification is required. Only carry out these actions in consultation with us.
