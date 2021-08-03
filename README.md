@@ -70,11 +70,11 @@ If you have an installer with a built-in certificate, you only need to check whe
 ## Installer without built-in certificate
 Browse to the installation folder and place the received customer certificates under Certificates in the folder.
 
-![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?style=centerme)
 
 After placing the certificates the services can be started.
 
-![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?raw=true)
+![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
 
 # Custom installations and modifications
 On some systems an custom installation or modification is required. Only carry out these actions in consultation with us.
