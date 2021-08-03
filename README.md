@@ -56,8 +56,6 @@ The steps below describe the manual installation of the AntSec collector with de
 5. Check the information and press next.
 6. When finished the collectors are installed. 
 
-![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
-
 Finalizing and starting the collectors.
 
 * If we provided you with an installer with build-in certificate the services selected during the installation are automatically started. 
@@ -67,10 +65,16 @@ Finalizing and starting the collectors.
 ## Installer with built-in certificate
 If you have an installer with a built-in certificate, you only need to check whether the services are started.
 
+![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+
 ## Installer without built-in certificate
 Browse to the installation folder and place the received customer certificates under Certificates in the folder.
 
+![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+
 After placing the certificates the services can be started.
+
+![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificate-placement.png?raw=true)
 
 # Custom installations and modifications
 On some systems an custom installation or modification is required. Only carry out these actions in consultation with us.
