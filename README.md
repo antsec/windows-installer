@@ -82,6 +82,8 @@ On some systems an custom installation or modification is required. Only carry o
 ## Domain Controller installation
 When installing on a Domain Controller, choose the "Domain Controller installation" option.
 
+![kies-de-collectoren-domain-controller](https://github.com/antsec/windows-installer/blob/main/images/kies-de-collectoren-domain-controller.png?raw=true)
+
 ## IIS Server installation
 On the systems where IIS is installed, a “Custom Installation” must take place. During installation, the following option must additionally be selected:
 
@@ -128,7 +130,7 @@ The command can be run in a Command Prompt, Powershell or in a script.
 
 The installation is active as long as the installation processes is active.
 
-![silent-installatie-process](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie-process.png?raw=true)
+![silent-installatie-process](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie-processes.png?raw=true)
 
 # Responsible Disclosure
 If you come across any (possible) vulnerabilities or have any security considerations, please contact us at security@antsec.io
