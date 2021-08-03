@@ -56,6 +56,8 @@ The steps below describe the manual installation of the AntSec collector with de
 5. Check the information and press next.
 6. When finished the collectors are installed. 
 
+[[https://github.com/antsec/windows-installer/images/services-geinstalleerd.png|alt=services-geinstalleerd]]
+
 Finalizing and starting the collectors.
 
 * If we provided you with an installer with build-in certificate the services selected during the installation are automatically started. 
@@ -83,7 +85,7 @@ On the systems where IIS is installed, a “Custom Installation” must take pla
  * Local System Rights
 
 The IIS logging must be activated separately. 
-1. Browse to the installation folder and 
+1. Browse to the installation folder
 2. Open the filebeat folder
 3. Open the modules.d folder
 4. Rename the iis.yml.disabled to iis.yml
