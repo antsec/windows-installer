@@ -42,7 +42,7 @@ Please make sure the following requirements are available on the system:
 
 # Installation
 
-On some systems an custom installation or modification is required. The  systems below require an custom installation. Please consult the paragraph "Custom installations and modifications" for these systems.
+On some systems an custom installation or modification is required. The  systems below require an non-standard installation. Please consult the paragraph "Custom installations and modifications" for these systems.
 
 * Domain Controllers
 * IIS Servers
@@ -85,10 +85,7 @@ When installing on a Domain Controller, choose the "Domain Controller installati
 ![kies-de-collectoren-domain-controller](https://github.com/antsec/windows-installer/blob/main/images/kies-de-collectoren-domain-controller.png?raw=true)
 
 ## IIS Server installation
-On the systems where IIS is installed, a “Custom Installation” must take place. During installation, the following option must additionally be selected:
-
-* AntSec File Collector
- * Local System Rights
+To activate IIS logging the following actions must be performed.
 
 The IIS logging must be activated separately. 
 1. Browse to the installation folder
