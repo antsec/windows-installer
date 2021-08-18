@@ -85,9 +85,8 @@ When installing on a Domain Controller, choose the "Domain Controller installati
 ![kies-de-collectoren-domain-controller](https://github.com/antsec/windows-installer/blob/main/images/kies-de-collectoren-domain-controller.png?raw=true)
 
 ## IIS Server installation
-To activate IIS logging the following actions must be performed.
+To activate IIS logging the following actions must be performed. The IIS logging must be activated separately.
 
-The IIS logging must be activated separately. 
 1. Browse to the installation folder
 2. Open the filebeat folder
 3. Open the modules.d folder
