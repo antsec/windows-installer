@@ -41,7 +41,6 @@ Please make sure the following requirements are available on the system:
 * Connection to athena.antsec.nl trough TCP port 7201.
 
 # Installation
-
 On some systems an custom installation or modification is required. The  systems below require an non-standard installation. Please consult the paragraph "Custom installations and modifications" for these systems.
 
 * Domain Controllers
@@ -52,27 +51,13 @@ The steps below describe the manual installation of the AntSec collector with de
 1. Place the installer on the server and run it.
 2. Enter customer number.
 3. Press next.
-4. Select the collectors to be installed. In most cases, the standard selected collectors and options are sufficient. 
-5. Check the information and press next.
-6. When finished the collectors are installed. 
+4. Browse to select certificate and key provided by AntSec.
+5. Press next.
+6. Select the collectors to be installed. In most cases, the standard selected collectors and options are sufficient. 
+7. Check the information and press next.
+8. When finished the collectors are installed. 
 
-Finalizing and starting the collectors.
-
-* If we provided you with an installer with build-in certificate the services selected during the installation are automatically started. 
-* If not, please read paragraph "Placing customer certificates".
-
-# Placing customer certificates
-## Installer with built-in certificate
-If you have an installer with a built-in certificate, you only need to check whether the services are started.
-
-![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
-
-## Installer without built-in certificate
-Browse to the installation folder and place the received customer certificates under Certificates in the folder.
-
-![certificate-placement](https://github.com/antsec/windows-installer/blob/main/images/certificaat-plaatsing.png?raw=true)
-
-After placing the certificates the services can be started.
+The services selected during the installation are automatically started.
 
 ![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
 
@@ -82,10 +67,10 @@ On some systems an custom installation or modification is required. Only carry o
 ## Domain Controller installation
 When installing on a Domain Controller, choose the "Domain Controller installation" option.
 
-![kies-de-collectoren-domain-controller](https://github.com/antsec/windows-installer/blob/main/images/kies-de-collectoren-domain-controller.png?raw=true)
-
 ## IIS Server installation
-To activate IIS logging the following actions must be performed. The IIS logging must be activated separately.
+When installing on an IIS server, enable the "Activate IIS logging" option.
+
+When you did not enable this manual activation is also possible with the following steps.
 
 1. Browse to the installation folder
 2. Open the filebeat folder
@@ -99,6 +84,9 @@ The steps below describe the silent installation of the AntSec collector. The fo
 
 Installing the AntSec collectors silently.
 * `/VERYSILENT`
+
+Adding the customer number to the command.
+* `/ASnumber`
 
 Choosing the components of the installation. Winlogbeat and Metricbeat are installed by default (if components are not entered).
 * `/COMPONENTS="winlogbeat,winlogbeat\vsawinlogbeat,winlogbeat\configwinlogbeat"`
@@ -116,13 +104,17 @@ The following components can be entered. These are the same options as in the ma
 * `packetbeat\configpacketbeat`
 * `sysmon`
 
+The installer creates page asking the user to provide the paths to the CRT- and KEY-files provided by us. They will then be copied to the installation folder during installation. 
+These can also be provided from the command line using the "AntSecCrtFile" and "AntSecKeyFile" parameters. The path needs to be in quotes when it contains spaces.
+* `/AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
+
 The installation can then, for example, be performed silently with the command below.
 
-* `"AntSec collector v7.4.2.5.exe" /VERYSILENT /ASnumber={enter customer number}`
+* `"AntSec collector v7.17.4.7.exe" /VERYSILENT /ASnumber={enter customer number} /AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
 
 The command can be run in a Command Prompt, Powershell or in a script.
 
-![silent-installatie](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie.png?raw=true)
+![Installer010](https://github.com/antsec/windows-installer/blob/main/images/Installer010.png?raw=true)
 
 The installation is active as long as the installation processes is active.
 
