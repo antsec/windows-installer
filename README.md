@@ -104,7 +104,7 @@ The following components can be entered. These are the same options as in the ma
 * `packetbeat\configpacketbeat`
 * `sysmon`
 
-The installer creates page asking the user to provide the paths to the CRT- and KEY-files provided by us. They will then be copied to the installation folder during installation. 
+The installer creates a page asking the user to provide the paths to the CRT- and KEY-files provided by us. They will then be copied to the installation folder during installation. 
 These can also be provided from the command line using the "AntSecCrtFile" and "AntSecKeyFile" parameters. The path needs to be in quotes when it contains spaces.
 * `/AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
 
