@@ -99,7 +99,7 @@ The following components can be entered. These are the same options as in the ma
 * `filebeat`
 * `filebeat\vsafilebeat`
 * `filebeat\configfilebeat`
-* `filebeat\iisfilebeat` (if you use this paramater the parameter /SUPPRESSMSGBOXES is also required)
+* `filebeat\iisfilebeat` (if you use this paramater, the parameter /SUPPRESSMSGBOXES is also required)
 * `packetbeat`
 * `packetbeat\vsapacketbeat`
 * `packetbeat\configpacketbeat`
