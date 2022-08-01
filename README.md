@@ -99,6 +99,7 @@ The following components can be entered. These are the same options as in the ma
 * `filebeat`
 * `filebeat\vsafilebeat`
 * `filebeat\configfilebeat`
+* `filebeat\iisfilebeat` (if you use this paramater the parameter /SUPPRESSMSGBOXES is also required)
 * `packetbeat`
 * `packetbeat\vsapacketbeat`
 * `packetbeat\configpacketbeat`
@@ -109,7 +110,6 @@ These can also be provided from the command line using the "AntSecCrtFile" and "
 * `/AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
 
 The installation can then, for example, be performed silently with the command below.
-
 * `"AntSec collector v7.17.4.7.exe" /VERYSILENT /ASnumber={enter customer number} /AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
 
 The command can be run in a Command Prompt, Powershell or in a script.
