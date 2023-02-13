@@ -13,9 +13,11 @@ This installer provides a basic configuration out of the box, which might not su
 Currently this works on x64 Windows platforms. Tested platforms are:
 
 * Windows clients: 7, 8, 10.
-* Windows Server: 2008R2, 2012, 2012R2, 2016 & 2019.
-* Microsoft Server Core: Windows Server 2012, 2012R2, 2016 & 2019.
+* Windows Server: 2008R2, 2012, 2012R2, 2016, 2019 and 2022.
+* Microsoft Server Core: Windows Server 2012, 2012R2, 2016, 2019 and 2022.
 * Microsoft Hyper-V server: 2012, 2016 & 2019.
+
+From version 7.17.4.13 Windows 7, 2008, 2012 and 2012R2 are no longer supported by default.
 
 # Components
 The AntSec collector for Windows consists of 5 components.
