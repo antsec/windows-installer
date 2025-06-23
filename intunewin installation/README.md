@@ -1,4 +1,4 @@
-# 📦 Deploy AntSec certificate files using Intune (.intunewin)
+# Deploy AntSec certificate files using Intune (.intunewin)
 
 This guide documents how to deploy `certificate.key` and `certificate.crt` to the following path on Windows devices using Microsoft Intune:
 
@@ -6,12 +6,12 @@ This guide documents how to deploy `certificate.key` and `certificate.crt` to th
 C:\Program Files\AntSec\Certificates
 ```
 
-## 🧾 Files to Deploy
+## Files to Deploy
 
 - `certificate.key`
 - `certificate.crt`
 
-## 📁 Folder Structure
+## Folder Structure
 
 Create the following folder structure locally:
 
@@ -23,7 +23,7 @@ C:\IntunePkg\Source
 └── install.ps1
 ```
 
-## 📝 PowerShell Script: `install.ps1`
+## PowerShell Script: `install.ps1`
 
 This script copies the certificate files to `C:\Program Files\AntSec\Certificates`. Ensure that the script runs with elevated permissions (SYSTEM context via Intune).
 
@@ -40,7 +40,7 @@ Copy-Item -Path "$PSScriptRoot\certificate.key" -Destination $TargetPath -Force
 Copy-Item -Path "$PSScriptRoot\certificate.crt" -Destination $TargetPath -Force
 ```
 
-## 🧰 Create the .intunewin Package
+## Create the .intunewin Package
 
 1. Download the [Win32 Content Prep Tool](https://learn.microsoft.com/en-us/mem/intune/apps/apps-win32-app-management#prepare-the-win32-app-content)
 2. Package the files using this command:
@@ -53,7 +53,7 @@ IntuneWinAppUtil.exe -c "C:\IntunePkg\Source" -s install.ps1 -o "C:\IntunePkg\Ou
 - `-s`: The setup script (`install.ps1`)  
 - `-o`: Output folder for the generated `.intunewin` file  
 
-## 🎯 Intune Configuration
+## Intune Configuration
 
 1. Go to **Intune Admin Center** → **Apps** → **Windows** → **Add**
 2. **App type**: Select *Win32 app*
