@@ -82,3 +82,33 @@ Remove-Item "C:\Program Files\AntSec\Certificates\certificate.crt" -Force
     - Architecture: Match your target devices (x64, etc.)
 
 8. **Assignments**: Assign to appropriate device groups
+
+# Deploy AntSec collectors using Intune (.intunewin)
+This guide documents how to deploy AntSec collectors trough Intune:
+
+1. Go to **Intune Admin Center** → **Apps** → **Windows** → **Add**
+2. **App type**: Select *Win32 app*
+3. **App package file**: Upload the `.intunewin` file that you have received from AntSec.
+4. **Install command**:
+
+```powershell
+AntSec-collectors.exe /VERYSILENT /ASnumber={enter customer number} /AntSecCrtFile="C:\Program Files\AntSec\Certificates\certificate.crt" /AntSecKeyFile="C:\Program Files\AntSec\Certificates\certificate.key"
+```
+
+5. **Uninstall command** (optional):
+
+```powershell
+"C:\Program Files\AntSec\unins000.exe" /SILENT
+```
+
+6. **Detection Rules**:
+    - **Rule Type**: File  
+    - **Path**: `C:\Program Files\AntSec\`  
+    - **File or folder**: `AntSec.ico`  
+    - **Detection method**: *File exists*
+
+7. **Requirements**:
+    - OS: Windows 10/11  
+    - Architecture: Match your target devices (x64, etc.)
+
+8. **Assignments**: Assign to appropriate device groups
