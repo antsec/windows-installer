@@ -1,4 +1,4 @@
-# Deploy AntSec certificate files using Intune (.intunewin)
+# Step 1: Deploy AntSec certificate files using Intune (.intunewin)
 
 This guide documents how to deploy `certificate.key` and `certificate.crt` to the following path on Windows devices using Microsoft Intune:
 
@@ -83,7 +83,7 @@ Remove-Item "C:\Program Files\AntSec\Certificates\certificate.crt" -Force
 
 8. **Assignments**: Assign to appropriate device groups
 
-# Deploy AntSec collectors using Intune (.intunewin)
+# Step 2: Deploy AntSec collectors using Intune (.intunewin)
 This guide documents how to deploy AntSec collectors trough Intune:
 
 1. Go to **Intune Admin Center** → **Apps** → **Windows** → **Add**
