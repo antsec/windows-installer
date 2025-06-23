@@ -1,6 +1,6 @@
 # Step 1: Deploy AntSec certificate files using Intune (.intunewin)
 
-This guide documents how to deploy `certificate.key` and `certificate.crt` to the following path on Windows devices using Microsoft Intune:
+This guide documents how to deploy `certificate.key` and `certificate.crt` to the following path on Windows devices using Microsoft Intune
 
 ```
 C:\Program Files\AntSec\Certificates
@@ -13,7 +13,7 @@ C:\Program Files\AntSec\Certificates
 
 ## Folder Structure
 
-Create the following folder structure locally:
+Create the following folder structure locally
 
 ```
 C:\IntunePkg\Source
@@ -64,27 +64,28 @@ IntuneWinAppUtil.exe -c "C:\IntunePkg\Source" -s install.ps1 -o "C:\IntunePkg\Ou
 powershell.exe -ExecutionPolicy Bypass -File install.ps1
 ```
 
-5. **Uninstall command** (optional):
+5. **Uninstall command** (optional)
 
 ```powershell
 Remove-Item "C:\Program Files\AntSec\Certificates\certificate.key" -Force
 Remove-Item "C:\Program Files\AntSec\Certificates\certificate.crt" -Force
 ```
 
-6. **Detection Rules**:
+6. **Detection Rules**
     - **Rule Type**: File  
     - **Path**: `C:\Program Files\AntSec\Certificates\`  
     - **File or folder**: `certificate.crt`  
     - **Detection method**: *File exists*  
 
-7. **Requirements**:
+7. **Requirements**
     - OS: Windows 10/11  
     - Architecture: Match your target devices (x64, etc.)
 
-8. **Assignments**: Assign to appropriate device groups
+8. **Assignments**
+    - Assign to appropriate device groups
 
 # Step 2: Deploy AntSec collectors using Intune (.intunewin)
-This guide documents how to deploy AntSec collectors trough Intune:
+This guide documents how to deploy AntSec collectors trough Intune.
 
 1. Go to **Intune Admin Center** → **Apps** → **Windows** → **Add**
 2. **App type**: Select *Win32 app*
@@ -95,20 +96,20 @@ This guide documents how to deploy AntSec collectors trough Intune:
 AntSec-collectors.exe /VERYSILENT /ASnumber={enter customer number} /AntSecCrtFile="C:\Program Files\AntSec\Certificates\certificate.crt" /AntSecKeyFile="C:\Program Files\AntSec\Certificates\certificate.key"
 ```
 
-5. **Uninstall command** (optional):
+5. **Uninstall command** (optional)
+    ```powershell
+    "C:\Program Files\AntSec\unins000.exe" /SILENT
+    ```
 
-```powershell
-"C:\Program Files\AntSec\unins000.exe" /SILENT
-```
-
-6. **Detection Rules**:
+6. **Detection Rules**
     - **Rule Type**: File  
     - **Path**: `C:\Program Files\AntSec\`  
     - **File or folder**: `AntSec.ico`  
     - **Detection method**: *File exists*
 
-7. **Requirements**:
+7. **Requirements**
     - OS: Windows 10/11  
     - Architecture: Match your target devices (x64, etc.)
 
-8. **Assignments**: Assign to appropriate device groups
+8. **Assignments**
+    - Assign to appropriate device groups
