@@ -1,126 +1,213 @@
-# Thank you
-We are glad to see you are installing our collectors. This script will guide you through the installation as much as possible.
+# AntSec Collector for Windows
 
-If you have any questions, feel free to contact us through your known channels.
+## Thank you
+Thank you for choosing the AntSec Collector.
 
-For those who come across this page and don't know what it is for. Visit https://www.antsec.io
+This installer will guide you through the installation and configuration process as much as possible. If you have any questions or require assistance, please contact us through your usual support channels.
+
+If you have reached this page and are unfamiliar with AntSec, visit our website: https://www.antsec.io
 
 # Support
-If you are unsure of anything we are here to help. Contact us and we will aid you through the process of installing the collectors.
 
-This installer provides a basic configuration out of the box, which might not suit your needs. Feel free to contact us for further configuration.
+Our team is available to assist you throughout the installation process.
 
-Currently this works on x64 Windows platforms. Tested platforms are:
+The default installation includes a standard configuration suitable for most environments. Depending on your requirements, additional tuning or customization may be recommended. Please contact AntSec if you would like further assistance with configuration.
 
-* Windows clients: 7, 8, 10.
-* Windows Server: 2008R2, 2012, 2012R2, 2016, 2019 and 2022.
-* Microsoft Server Core: Windows Server 2012, 2012R2, 2016, 2019 and 2022.
-* Microsoft Hyper-V server: 2012, 2016 & 2019.
+## Supported platforms
 
-From version 7.17.4.13 Windows 7, 2008, 2012 and 2012R2 are no longer supported by default.
+### Windows Client
+- Windows 10
+- Windows 11
+
+### Windows Server
+- Windows Server 2016
+- Windows Server 2019
+- Windows Server 2022
+- Windows Server 2025
+
+### Other Supported Platforms
+- Windows Server Core (2016 and newer)
+- Microsoft Hyper-V Server
 
 # Components
-The AntSec collector for Windows consists of 5 components.
+The AntSec Collector for Windows consists of several components that work together to collect security, operational, and performance data.
 
-* Event Collector (Winlog Beat)
-  * Collection of logs from the Windows Event log.
-* System collector (Metricbeat)
-  * Collection of logs about the performance of the system.
-* File Collector (Filebeat)
-  * Collection of logs from files or receive logs from syslog which we forward to our central system.
-* Network collector (Packetbeat)
-  * Collection of logs of the network traffic of the system. In order for it to function, a WinPcap installation and license is also required.
-* Sysmon
-  * This writes usefull information (e.g. started processes and executables) to the Windows Event log so that they can be sent to our central system.
+## Event Collector
+Collects Windows Event Log information and securely forwards it to the AntSec platform for monitoring and analysis.
+
+## System Collector
+Collects operating system metrics, including CPU, memory, disk, and network statistics.
+
+## File Collector
+Collects log files from local applications and services. It can also receive and forward Syslog messages from external systems.
+
+## Network Collector
+Captures and analyzes network traffic metadata to provide visibility into network activity.
+
+## Sysmon
+Installs and configures Microsoft Sysmon to enhance endpoint visibility and generate detailed security telemetry.
+
+---
 
 # Requirements
-Please make sure the following requirements are available on the system:
 
-* Installation executable for installation of AntSec collectors.
-* Local Administrator Privileges.
-* Certificate for connecting to our systems. The certificate is unique per customer.
-* 64-bit operating system.
-* Connection to athena.antsec.nl trough TCP port 7201.
+Before starting the installation, verify that the following requirements are met:
+
+- AntSec Collector installation package
+- Local Administrator privileges
+- Customer certificate and private key provided by AntSec
+- 64-bit Windows operating system
+- Outbound connectivity to `secops.antsec.io` on TCP port `7201`
+
+---
 
 # Installation
-On some systems an custom installation or modification is required. The  systems below require an non-standard installation. Please consult the paragraph "Custom installations and modifications" for these systems.
 
-* Domain Controllers
-* IIS Servers
+Certain server roles require additional configuration. Please review the **Custom Installations and Modifications** section before proceeding if the system is:
 
-The steps below describe the manual installation of the AntSec collector with default settings. 
+- A Domain Controller
+- An IIS Server
 
-1. Place the installer on the server and run it.
-2. Enter customer number.
-3. Press next.
-4. Browse to select certificate and key provided by AntSec.
-5. Press next.
-6. Select the collectors to be installed. In most cases, the standard selected collectors and options are sufficient. 
-7. Check the information and press next.
-8. When finished the collectors are installed. 
+## Standard installation
 
-The services selected during the installation are automatically started.
+1. Copy the installer to the target system.
+2. Launch the installer.
+3. Enter the customer number provided by AntSec.
+4. Click **Next**.
+5. Select the certificate and private key supplied by AntSec.
+6. Choose the components to install.
+7. Review the installation summary.
+8. Click **Install** to start the installation.
 
-![services-geinstalleerd](https://github.com/antsec/windows-installer/blob/main/images/services-geinstalleerd.png?raw=true)
+Once the installation is complete, all selected services will start automatically.
+
+![services-geinstalleerd](images/services-geinstalleerd.png)
+
+---
 
 # Custom installations and modifications
-On some systems an custom installation or modification is required. Only carry out these actions in consultation with us.
+
+The options described below should only be used in consultation with AntSec.
 
 ## Domain Controller installation
-When installing on a Domain Controller, choose the "Domain Controller installation" option.
 
-## IIS Server installation
-When installing on an IIS server, enable the "Activate IIS logging" option.
+When installing on a Domain Controller, select the **Domain Controller Installation** option during setup.
 
-When you did not enable this manual activation is also possible with the following steps.
+This enables recommended collection settings for Active Directory environments.
 
-1. Browse to the installation folder
-2. Open the filebeat folder
-3. Open the modules.d folder
-4. Rename the iis.yml.disabled to iis.yml
-5. Restart the AntSec Filebeat service. 
-6. After the restart IIS logging is being send.
+## IIS server installation
+
+When installing on a server running Internet Information Services (IIS), enable the **IIS Logging** option during installation.
+
+If IIS logging was not enabled during setup, it can be activated manually:
+
+1. Navigate to the installation directory.
+2. Open the `filebeat\modules.d` folder.
+3. Rename `iis.yml.disabled` to `iis.yml`.
+4. Restart the AntSec File Collector service.
+
+After the service restart, IIS logs will automatically be collected and forwarded.
+
+---
 
 # Silent installation
-The steps below describe the silent installation of the AntSec collector. The following silent install parameters are supported.
 
-Installing the AntSec collectors silently.
-* `/VERYSILENT`
+The AntSec Collector supports unattended installations using command-line parameters.
 
-Adding the customer number to the command.
-* `/ASnumber`
+## Enable silent installation
 
-Choosing the components of the installation. Winlogbeat and Metricbeat are installed by default (if components are not entered).
-* `/COMPONENTS="winlogbeat,winlogbeat\vsawinlogbeat,winlogbeat\configwinlogbeat"`
+```cmd
+/VERYSILENT
+```
 
-The following components can be entered. These are the same options as in the manual installation. For example, if you need Winlogbeat, install all three Winlogbeat components.
-* `winlogbeat`
-* `winlogbeat\vsawinlogbeat`
-* `winlogbeat\configwinlogbeat`
-* `metricbeat`
-* `filebeat`
-* `filebeat\vsafilebeat`
-* `filebeat\configfilebeat`
-* `filebeat\iisfilebeat` (if you use this paramater, the parameter /SUPPRESSMSGBOXES is also required)
-* `packetbeat`
-* `packetbeat\vsapacketbeat`
-* `packetbeat\configpacketbeat`
-* `sysmon`
+## Specify customer Nnmber
 
-The installer creates a page asking the user to provide the paths to the CRT- and KEY-files provided by us. They will then be copied to the installation folder during installation. 
-These can also be provided from the command line using the "AntSecCrtFile" and "AntSecKeyFile" parameters. The path needs to be in quotes when it contains spaces.
-* `/AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
+```cmd
+/ASnumber=<customer_number>
+```
 
-The installation can then, for example, be performed silently with the command below.
-* `"AntSec collector v7.17.4.7.exe" /VERYSILENT /ASnumber={enter customer number} /AntSecCrtFile=C:\path\to\file\certificate.crt /AntSecKeyFile=C:\path\to\file\certificate.key`
+## Component selection
 
-The command can be run in a Command Prompt, Powershell or in a script.
+By default, the Event Collector and System Collector are installed.
 
-![Installer010](https://github.com/antsec/windows-installer/blob/main/images/Installer010.png?raw=true)
+A custom component selection can be provided using:
 
-The installation is active as long as the installation processes is active.
+```cmd
+/COMPONENTS="winlogbeat,winlogbeat\vsawinlogbeat,winlogbeat\configwinlogbeat"
+```
 
-![silent-installatie-process](https://github.com/antsec/windows-installer/blob/main/images/silent-installatie-processes.png?raw=true)
+### Available components
+
+#### Event collector
+
+```text
+winlogbeat
+winlogbeat\vsawinlogbeat
+winlogbeat\configwinlogbeat
+```
+
+#### System collector
+
+```text
+metricbeat
+```
+
+#### File collector
+
+```text
+filebeat
+filebeat\vsafilebeat
+filebeat\configfilebeat
+filebeat\iisfilebeat
+```
+
+#### Network collector
+
+```text
+packetbeat
+packetbeat\vsapacketbeat
+packetbeat\configpacketbeat
+```
+
+#### Sysmon
+
+```text
+sysmon
+```
+
+## Certificate parameters
+
+```cmd
+/AntSecCrtFile="C:\Certificates\customer.crt"
+/AntSecKeyFile="C:\Certificates\customer.key"
+```
+
+## Example installation wizard
+
+The installer guides the user through certificate selection, component selection and installation validation.
+
+![Installer010](images/Installer010.png)
+
+## Example default silent Installation
+
+```cmd
+"AntSec-Collector-v9.3.1.exe" ^
+/VERYSILENT ^
+/ASnumber=12345 ^
+/AntSecCrtFile="C:\Certificates\customer.crt" ^
+/AntSecKeyFile="C:\Certificates\customer.key"
+```
+
+The installation remains active while the installation process is running.
+
+![silent-installatie-processes](images/silent-installatie-processes.png)
+
+---
 
 # Responsible Disclosure
-If you come across any (possible) vulnerabilities or have any security considerations, please contact us at security@antsec.io
+
+If you discover a potential security vulnerability or have security-related concerns, please contact:
+
+**security@antsec.io**
+
+We appreciate responsible disclosure and will work with you to investigate and resolve reported issues.
