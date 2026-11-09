@@ -128,7 +128,7 @@ The AntSec Collector supports unattended installations using command-line parame
 
 ## Component selection
 
-By default, the Event Collector and System Collector are installed.
+By default, the Event Collector, System Collector and File Collector are installed.
 
 A custom component selection can be provided using:
 
@@ -182,6 +182,32 @@ sysmon
 /AntSecKeyFile="C:\Certificates\customer.key"
 ```
 
+## Suppress messages boxes
+
+By default, this parameter is not required. However an extra popup shows when installing components for Packetbeat during a silent installation:
+
+![Packetbeat popup](images/silent-installatie-packetbeat-popup.png)
+
+Use this parameter to suppress this messagebox.
+
+```cmd
+/SUPPRESSMSGBOXES
+```
+
+## Logfile creation
+
+To create a logfile of the setup process, add this parameter. The default location is the user's TEMP directory.
+
+```cmd
+/LOG
+```
+
+To provide a different location, use the parameter as shown below. The full filename and its path are required. If a logfile already exists, it will be overwritten.
+
+```cmd
+/LOG="C:\temp\setup.log"
+```
+
 ## Example installation wizard
 
 The installer guides the user through certificate selection, component selection and installation validation.
@@ -193,7 +219,7 @@ The installer guides the user through certificate selection, component selection
 ```cmd
 "AntSec-Collector-v9.3.1.exe" ^
 /VERYSILENT ^
-/ASnumber=12345 ^
+/ASnumber=as12345 ^
 /AntSecCrtFile="C:\Certificates\customer.crt" ^
 /AntSecKeyFile="C:\Certificates\customer.key"
 ```
