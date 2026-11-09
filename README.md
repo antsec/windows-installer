@@ -104,7 +104,7 @@ If IIS logging was not enabled during setup, it can be activated manually:
 1. Navigate to the installation directory.
 2. Open the `filebeat\modules.d` folder.
 3. Rename `iis.yml.disabled` to `iis.yml`.
-4. Restart the AntSec File Collector service.
+4. Restart the AntSec Filebeat service (AntSec File Collector).
 
 After the service restart, IIS logs will automatically be collected and forwarded.
 
